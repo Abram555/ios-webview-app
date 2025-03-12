@@ -1,35 +1,13 @@
 workflows:
   ios-webview-app:
-    name: iOS WebView App Build
-    max_build_duration: 60
-    environment:
-      flutter: stable
-      xcode: latest
-      cocoapods: default
-      vars:
-        FLUTTER_STORAGE_BASE_URL: "https://storage.flutter-io.cn"
-        PUB_HOSTED_URL: "https://pub.dev"
-        FASTLANE_SKIP_REQUIRES_LICENSE: "true"
+    name: iOS WebView App
+    platform: ios
+    flutter:
+      channel: stable
     scripts:
-      # الخطوة الأولى: تثبيت CocoaPods Dependencies
-      - name: Install CocoaPods dependencies
+      - name: Install dependencies
         script: |
-          sudo gem install cocoapods
-          pod install
-          flutter clean
           flutter pub get
-          flutter pub upgrade
-
-      # الخطوة الثانية: بناء تطبيق iOS بدون توقيع الكود
       - name: Build iOS app
         script: |
-          flutter build ios --release --no-codesign
-
-    artifacts:
-      - build/ios/iphoneos/*.app
-      - build/ios/iphoneos/*.ipa
-
-    publishing:
-      email:
-        recipients:
-          - "your-email@example.com"
+          flutter build ios --no-codesign
