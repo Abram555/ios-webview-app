@@ -1,5 +1,0 @@
-name: my_app
-dependencies:
-  flutter:
-    sdk: flutter
-  flutter_inappwebview: ^5.7.2
