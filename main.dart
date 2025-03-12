@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: InAppWebView(
-          initialUrlRequest: URLRequest(url: Uri.parse("httpscoptic-dictionry.glitch.me")),
+          initialUrlRequest: URLRequest(url: Uri.parse("https://coptic-dictionry.glitch.me/")),
         ),
       ),
     );
